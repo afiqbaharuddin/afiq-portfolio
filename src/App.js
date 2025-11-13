@@ -263,7 +263,7 @@ const Portfolio = () => {
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <div className="mb-8 animate-fade-in">
             <h2 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              Muhammad Afiq Baharuddinn
+              Muhammad Afiq Baharuddin
             </h2>
             <p className="text-xl md:text-2xl text-gray-400 mb-8">
               Software Engineer | Full Stack Developer
