@@ -279,7 +279,7 @@ const Portfolio = () => {
               <Mail size={20} />
               Email
             </a>
-            <a href="https://linkedin.com/in/afiq-baharuddin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-purple-500/20 hover:bg-purple-500/30 rounded-full transition-all">
+            <a href="https://www.linkedin.com/in/afiq-baharuddin-481a98247" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-purple-500/20 hover:bg-purple-500/30 rounded-full transition-all">
               <Linkedin size={20} />
               LinkedIn
             </a>
