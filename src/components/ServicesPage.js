@@ -94,7 +94,7 @@ const ServicesPage = () => {
   const BookingModal = ({ onClose }) => {
     return (
       <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm overflow-y-auto flex items-center justify-center p-6">
-        <div className="max-w-2xl w-full bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 relative">
+        <div className="max-w-2xl w-full bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 relative">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
@@ -103,7 +103,7 @@ const ServicesPage = () => {
           </button>
           
           <div className="mb-6">
-            <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
               Book a Free Consultation
             </h3>
             <p className="text-gray-400">Let's discuss your project and how I can help bring it to life</p>
@@ -116,7 +116,7 @@ const ServicesPage = () => {
                 <input
                   type="text"
                   placeholder="John Doe"
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 text-gray-100 placeholder-gray-500"
+                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100 placeholder-gray-500"
                 />
               </div>
               <div>
@@ -124,7 +124,7 @@ const ServicesPage = () => {
                 <input
                   type="email"
                   placeholder="john@example.com"
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 text-gray-100 placeholder-gray-500"
+                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100 placeholder-gray-500"
                 />
               </div>
             </div>
@@ -135,12 +135,12 @@ const ServicesPage = () => {
                 <input
                   type="tel"
                   placeholder="+60 12-345 6789"
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 text-gray-100 placeholder-gray-500"
+                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100 placeholder-gray-500"
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">Project Type</label>
-                <select className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 text-gray-100">
+                <select className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100">
                   <option>Web Application</option>
                   <option>E-commerce Platform</option>
                   <option>Admin Dashboard</option>
@@ -153,7 +153,7 @@ const ServicesPage = () => {
 
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">Project Budget</label>
-              <select className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 text-gray-100">
+              <select className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100">
                 <option>Less than RM 5,000</option>
                 <option>RM 5,000 - RM 10,000</option>
                 <option>RM 10,000 - RM 20,000</option>
@@ -167,7 +167,7 @@ const ServicesPage = () => {
               <textarea
                 rows="4"
                 placeholder="Tell me about your project requirements, timeline, and any specific features you need..."
-                className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 text-gray-100 placeholder-gray-500 resize-none"
+                className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100 placeholder-gray-500 resize-none"
               ></textarea>
             </div>
 
@@ -176,7 +176,7 @@ const ServicesPage = () => {
                 alert('Thank you for your interest! I will contact you within 24 hours.');
                 onClose();
               }}
-              className="w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
+              className="w-full px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
             >
               <Calendar size={20} />
               Schedule Consultation
@@ -192,16 +192,16 @@ const ServicesPage = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 text-gray-100 min-h-screen">
+    <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-gray-100 min-h-screen">
       {/* Booking Modal */}
       {showBookingModal && <BookingModal onClose={() => setShowBookingModal(false)} />}
 
       {/* Navigation */}
-      <nav className="fixed w-full z-40 bg-black/80 backdrop-blur-lg shadow-lg">
+      <nav className="fixed w-full z-40 bg-black/80 backdrop-blur-lg shadow-lg border-b border-slate-700/50">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <button
             onClick={() => navigate('/')}
-            className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors"
+            className="flex items-center gap-2 text-gray-300 hover:text-teal-400 transition-colors"
           >
             <ArrowLeft size={20} />
             Back to Portfolio
@@ -209,7 +209,7 @@ const ServicesPage = () => {
           
           <button
             onClick={() => setShowBookingModal(true)}
-            className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-full font-semibold transition-all"
+            className="px-6 py-2 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 rounded-full font-semibold transition-all"
           >
             Book Now
           </button>
@@ -218,18 +218,18 @@ const ServicesPage = () => {
 
       {/* Hero Section */}
       <section id="hero" className="pt-32 pb-20 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-purple-500/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-teal-500/10 to-emerald-500/10"></div>
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-700"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse delay-700"></div>
         </div>
 
         <div className="max-w-5xl mx-auto text-center relative z-10 animate-fade-in">
-          <div className="inline-block mb-6 px-6 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full">
-            <span className="text-blue-400 font-medium">🚀 Professional Development Services</span>
+          <div className="inline-block mb-6 px-6 py-2 bg-teal-500/10 border border-teal-500/30 rounded-full">
+            <span className="text-teal-400 font-medium">🚀 Professional Development Services</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent leading-tight">
             Transform Your Ideas
             <br />
             Into Reality
@@ -242,7 +242,7 @@ const ServicesPage = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <button
               onClick={() => setShowBookingModal(true)}
-              className="group flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-full font-semibold transition-all text-lg shadow-lg shadow-blue-500/20"
+              className="group flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 rounded-full font-semibold transition-all text-lg shadow-lg shadow-teal-500/20"
             >
               <Rocket size={20} className="group-hover:rotate-12 transition-transform" />
               Start Your Project
@@ -272,18 +272,18 @@ const ServicesPage = () => {
             {services.map((service, idx) => (
               <div
                 key={idx}
-                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group"
+                className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 hover:border-teal-500/50 transition-all duration-300 group hover:shadow-lg hover:shadow-teal-500/20"
                 style={{ 
                   transitionDelay: `${idx * 100}ms`,
                   animation: isVisible('services') ? 'fadeInUp 0.6s ease-out forwards' : 'none',
                   opacity: isVisible('services') ? 1 : 0
                 }}
               >
-                <div className="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <service.icon className="text-blue-400" size={28} />
+                <div className="w-14 h-14 bg-teal-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <service.icon className="text-teal-400" size={28} />
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-blue-400">{service.title}</h3>
-                <p className="text-gray-400 mb-6 leading-relaxed">{service.description}</p>
+                <h3 className="text-2xl font-bold mb-3 text-teal-400">{service.title}</h3>
+                <p className="text-gray-400 leading-relaxed">{service.description}</p>
                 <ul className="space-y-2">
                   {service.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-2 text-gray-300 text-sm">
@@ -319,13 +319,13 @@ const ServicesPage = () => {
                   opacity: isVisible('process') ? 1 : 0
                 }}
               >
-                <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-800 hover:border-blue-500/50 transition-all duration-300">
-                  <div className="text-5xl font-bold text-blue-500/20 mb-4">{step.step}</div>
-                  <h3 className="text-xl font-bold mb-3 text-blue-400">{step.title}</h3>
+                <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-teal-500/50 transition-all duration-300">
+                  <div className="text-5xl font-bold text-teal-500/20 mb-4">{step.step}</div>
+                  <h3 className="text-xl font-bold mb-3 text-teal-400">{step.title}</h3>
                   <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>
                 </div>
                 {idx < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-blue-500/50 to-transparent"></div>
+                  <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-teal-500/50 to-transparent"></div>
                 )}
               </div>
             ))}
@@ -334,7 +334,7 @@ const ServicesPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="cta" className={`py-20 px-6 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 transition-all duration-1000 ${isVisible('cta') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <section id="cta" className={`py-20 px-6 bg-gradient-to-r from-teal-500/10 via-cyan-500/10 to-emerald-500/10 transition-all duration-1000 ${isVisible('cta') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl font-bold mb-6">Ready to Start Your Project?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -343,7 +343,7 @@ const ServicesPage = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <button
               onClick={() => setShowBookingModal(true)}
-              className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-full font-semibold transition-all text-lg inline-flex items-center gap-2 shadow-lg shadow-blue-500/20"
+              className="px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 rounded-full font-semibold transition-all text-lg inline-flex items-center gap-2 shadow-lg shadow-teal-500/20"
             >
               <Calendar size={20} />
               Book Free Consultation
@@ -364,14 +364,14 @@ const ServicesPage = () => {
       </section>
 
       {/* Contact Info */}
-      <section className="py-12 px-6 border-t border-gray-800">
+      <section className="py-12 px-6 border-t border-slate-700/50">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-wrap justify-center gap-6">
-            <a href="mailto:mafqqq16@gmail.com" className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 hover:from-blue-500/30 hover:to-purple-500/30 rounded-xl transition-all border border-blue-500/30">
+            <a href="mailto:mafqqq16@gmail.com" className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-teal-500/20 to-cyan-500/20 hover:from-teal-500/30 hover:to-cyan-500/30 rounded-xl transition-all border border-teal-500/30">
               <Mail size={20} />
               <span>mafqqq16@gmail.com</span>
             </a>
-            <a href="tel:+60175894606" className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 hover:from-purple-500/30 hover:to-pink-500/30 rounded-xl transition-all border border-purple-500/30">
+            <a href="tel:+60175894606" className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 hover:from-cyan-500/30 hover:to-emerald-500/30 rounded-xl transition-all border border-cyan-500/30">
               <Phone size={20} />
               <span>+60 17-589 4606</span>
             </a>
@@ -380,7 +380,7 @@ const ServicesPage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-gray-800">
+      <footer className="py-8 px-6 border-t border-slate-700/50">
         <div className="max-w-6xl mx-auto text-center text-gray-400">
           <p>© 2024 Muhammad Afiq Baharuddin. All rights reserved.</p>
         </div>

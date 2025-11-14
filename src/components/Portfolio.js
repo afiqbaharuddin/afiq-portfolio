@@ -132,15 +132,15 @@ const Portfolio = () => {
             <div className="mb-8">
               <button
                 onClick={onClose}
-                className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors mb-6"
+                className="flex items-center gap-2 text-gray-400 hover:text-teal-400 transition-colors mb-6"
               >
                 <ArrowLeft size={20} />
                 Back to Experience
               </button>
               
-              <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800">
-                <h2 className="text-4xl font-bold text-blue-400 mb-3">{project.role}</h2>
-                <h3 className="text-2xl text-purple-400 mb-4">{project.project}</h3>
+              <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50">
+                <h2 className="text-4xl font-bold text-teal-400 mb-3">{project.role}</h2>
+                <h3 className="text-2xl text-cyan-400 mb-4">{project.project}</h3>
                 <div className="flex flex-wrap gap-4 text-gray-400 mb-4">
                   <span>{project.company}</span>
                   <span>•</span>
@@ -159,7 +159,7 @@ const Portfolio = () => {
                 {project.images.map((image, idx) => (
                   <div
                     key={idx}
-                    className="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300"
+                    className="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl overflow-hidden border border-slate-700/50 hover:border-teal-500/50 transition-all duration-300"
                   >
                     <div className="aspect-video overflow-hidden">
                       <img
@@ -179,11 +179,11 @@ const Portfolio = () => {
             {/* Key Highlights */}
             <div className="mb-8">
               <h4 className="text-2xl font-bold mb-6 text-gray-100">Key Contributions</h4>
-              <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800">
+              <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50">
                 <ul className="space-y-3">
                   {project.highlights.map((highlight, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-gray-300">
-                      <span className="text-blue-400 mt-1 text-xl">▹</span>
+                      <span className="text-teal-400 mt-1 text-xl">▹</span>
                       <span className="leading-relaxed">{highlight}</span>
                     </li>
                   ))}
@@ -194,12 +194,12 @@ const Portfolio = () => {
             {/* Technologies */}
             <div>
               <h4 className="text-2xl font-bold mb-6 text-gray-100">Technologies Used</h4>
-              <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800">
+              <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50">
                 <div className="flex flex-wrap gap-3">
                   {project.tech.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="px-4 py-2 bg-blue-500/10 text-blue-400 rounded-lg text-sm border border-blue-500/20 font-medium"
+                      className="px-4 py-2 bg-teal-500/10 text-teal-400 rounded-lg text-sm border border-teal-500/20 font-medium"
                     >
                       {tech}
                     </span>
@@ -219,11 +219,11 @@ const Portfolio = () => {
   }
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 text-gray-100 min-h-screen">
+    <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-gray-50 min-h-screen">
       {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrollY > 50 ? 'bg-black/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'}`}>
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrollY > 50 ? 'bg-slate-900/80 backdrop-blur-lg shadow-lg shadow-teal-500/5' : 'bg-transparent'}`}>
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">
             MA
           </h1>
           
@@ -232,14 +232,14 @@ const Portfolio = () => {
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="text-gray-300 hover:text-blue-400 transition-colors capitalize"
+                className="text-gray-300 hover:text-teal-400 transition-colors capitalize"
               >
                 {item}
               </button>
             ))}
             <button
               onClick={() => navigate('/services')}
-              className="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-full font-semibold transition-all"
+              className="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 rounded-full font-semibold transition-all shadow-lg shadow-teal-500/20"
             >
               <Calendar size={18} />
               Book Services
@@ -257,14 +257,14 @@ const Portfolio = () => {
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="block w-full text-left px-6 py-3 text-gray-300 hover:bg-blue-500/10 hover:text-blue-400 capitalize"
+                className="block w-full text-left px-6 py-3 text-gray-300 hover:bg-teal-500/10 hover:text-teal-400 capitalize"
               >
                 {item}
               </button>
             ))}
             <button
               onClick={() => navigate('/services')}
-              className="block w-full text-left px-6 py-3 text-white bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 font-semibold"
+              className="block w-full text-left px-6 py-3 text-white bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 font-semibold"
             >
               Book Services
             </button>
@@ -274,10 +274,10 @@ const Portfolio = () => {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-purple-500/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-teal-500/5 to-cyan-500/5"></div>
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <div className="mb-8 animate-fade-in">
-            <h2 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <h2 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-teal-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent animate-gradient">
               Muhammad Afiq Baharuddin
             </h2>
             <p className="text-xl md:text-2xl text-gray-400 mb-8">
@@ -290,22 +290,22 @@ const Portfolio = () => {
           </div>
 
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <a href="mailto:mafqqq16@gmail.com" className="flex items-center gap-2 px-6 py-3 bg-blue-500/20 hover:bg-blue-500/30 rounded-full transition-all">
+            <a href="mailto:mafqqq16@gmail.com" className="flex items-center gap-2 px-6 py-3 bg-teal-500/20 hover:bg-teal-500/30 rounded-full transition-all border border-teal-500/20">
               <Mail size={20} />
               Email
             </a>
-            <a href="https://www.linkedin.com/in/afiq-baharuddin-481a98247" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-purple-500/20 hover:bg-purple-500/30 rounded-full transition-all">
+            <a href="https://www.linkedin.com/in/afiq-baharuddin-481a98247" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-full transition-all border border-cyan-500/20">
               <Linkedin size={20} />
               LinkedIn
             </a>
-            <a href="tel:+60175894606" className="flex items-center gap-2 px-6 py-3 bg-pink-500/20 hover:bg-pink-500/30 rounded-full transition-all">
+            <a href="tel:+60175894606" className="flex items-center gap-2 px-6 py-3 bg-emerald-500/20 hover:bg-emerald-500/30 rounded-full transition-all border border-emerald-500/20">
               <Phone size={20} />
               Call
             </a>
           </div>
 
           <button onClick={() => scrollToSection('about')} className="animate-bounce">
-            <ChevronDown size={32} className="text-blue-400" />
+            <ChevronDown size={32} className="text-teal-400" />
           </button>
         </div>
       </section>
@@ -314,14 +314,14 @@ const Portfolio = () => {
       <section id="about" className={`py-20 px-6 transition-all duration-1000 ${isVisible('about') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto">
           <h3 className="text-4xl font-bold mb-12 flex items-center gap-3">
-            <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-              <Code className="text-blue-400" />
+            <div className="w-12 h-12 bg-teal-500/20 rounded-lg flex items-center justify-center">
+              <Code className="text-teal-400" />
             </div>
             About Me
           </h3>
-          <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800">
+          <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50">
             <div className="flex items-start gap-3 mb-4">
-              <MapPin className="text-blue-400 mt-1" size={20} />
+              <MapPin className="text-teal-400 mt-1" size={20} />
               <div>
                 <p className="text-gray-300 mb-2">Based in Selangor, Malaysia</p>
                 <p className="text-gray-400 text-sm">Available to relocate anywhere</p>
@@ -341,8 +341,8 @@ const Portfolio = () => {
       <section id="experience" className={`py-20 px-6 transition-all duration-1000 ${isVisible('experience') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto">
           <h3 className="text-4xl font-bold mb-12 flex items-center gap-3">
-            <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
-              <Briefcase className="text-purple-400" />
+            <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center">
+              <Briefcase className="text-cyan-400" />
             </div>
             Work Experience
           </h3>
@@ -351,13 +351,13 @@ const Portfolio = () => {
               <div
                 key={idx}
                 onClick={() => setSelectedProject(job)}
-                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-blue-500/50 transition-all duration-300 cursor-pointer group"
+                className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 hover:border-teal-500/50 transition-all duration-300 cursor-pointer group"
                 style={{ transitionDelay: `${idx * 100}ms` }}
               >
                 <div className="mb-4">
                   <div className="flex items-start justify-between mb-2">
-                    <h4 className="text-2xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors">{job.role}</h4>
-                    <ExternalLink className="text-gray-500 group-hover:text-blue-400 transition-colors" size={20} />
+                    <h4 className="text-2xl font-bold text-teal-400 group-hover:text-teal-300 transition-colors">{job.role}</h4>
+                    <ExternalLink className="text-gray-500 group-hover:text-teal-400 transition-colors" size={20} />
                   </div>
                   <p className="text-xl text-gray-300 mb-1">{job.company}</p>
                   <div className="flex flex-wrap gap-4 text-sm text-gray-400">
@@ -366,14 +366,14 @@ const Portfolio = () => {
                     <span>{job.location}</span>
                   </div>
                   {job.project && (
-                    <p className="text-purple-400 mt-2 font-medium">{job.project}</p>
+                    <p className="text-cyan-400 mt-2 font-medium">{job.project}</p>
                   )}
                 </div>
                 
                 <ul className="space-y-2 mb-6">
                   {job.highlights.slice(0, 3).map((highlight, i) => (
                     <li key={i} className="flex items-start gap-3 text-gray-300">
-                      <span className="text-blue-400 mt-1">▹</span>
+                      <span className="text-teal-400 mt-1">▹</span>
                       <span>{highlight}</span>
                     </li>
                   ))}
@@ -381,13 +381,13 @@ const Portfolio = () => {
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {job.tech.map((tech, i) => (
-                    <span key={i} className="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm border border-blue-500/20">
+                    <span key={i} className="px-3 py-1 bg-teal-500/10 text-teal-400 rounded-full text-sm border border-teal-500/20">
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                <div className="text-sm text-blue-400 group-hover:text-blue-300 flex items-center gap-2 font-medium">
+                <div className="text-sm text-teal-400 group-hover:text-teal-300 flex items-center gap-2 font-medium">
                   View full project details
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </div>
@@ -401,8 +401,8 @@ const Portfolio = () => {
       <section id="skills" className={`py-20 px-6 transition-all duration-1000 ${isVisible('skills') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto">
           <h3 className="text-4xl font-bold mb-12 flex items-center gap-3">
-            <div className="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center">
-              <Award className="text-pink-400" />
+            <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center">
+              <Award className="text-emerald-400" />
             </div>
             Skills & Technologies
           </h3>
@@ -410,13 +410,13 @@ const Portfolio = () => {
             {skills.map((category, idx) => (
               <div
                 key={idx}
-                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-800 hover:border-pink-500/50 transition-all duration-300"
+                className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-emerald-500/50 transition-all duration-300"
                 style={{ transitionDelay: `${idx * 100}ms` }}
               >
-                <h4 className="text-xl font-bold mb-4 text-pink-400">{category.category}</h4>
+                <h4 className="text-xl font-bold mb-4 text-emerald-400">{category.category}</h4>
                 <div className="flex flex-wrap gap-2">
                   {category.items.map((skill, i) => (
-                    <span key={i} className="px-3 py-1 bg-gray-700/50 text-gray-300 rounded-lg text-sm">
+                    <span key={i} className="px-3 py-1 bg-slate-700/50 text-gray-300 rounded-lg text-sm border border-slate-600/30">
                       {skill}
                     </span>
                   ))}
@@ -431,29 +431,29 @@ const Portfolio = () => {
       <section id="education" className={`py-20 px-6 transition-all duration-1000 ${isVisible('education') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto">
           <h3 className="text-4xl font-bold mb-12 flex items-center gap-3">
-            <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
-              <GraduationCap className="text-green-400" />
+            <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center">
+              <GraduationCap className="text-emerald-400" />
             </div>
             Education
           </h3>
           <div className="space-y-6">
-            <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800">
-              <h4 className="text-2xl font-bold text-green-400 mb-2">Bachelor of Computer Science (Hons.)</h4>
+            <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50">
+              <h4 className="text-2xl font-bold text-emerald-400 mb-2">Bachelor of Computer Science (Hons.)</h4>
               <p className="text-xl text-gray-300 mb-2">Multimedia Computing</p>
               <p className="text-gray-400 mb-2">MARA Technological University (UiTM) - Jasin, Melaka</p>
               <div className="flex gap-4 text-sm">
                 <span className="text-gray-400">2020 – 2022</span>
-                <span className="text-blue-400 font-medium">CGPA: 3.29</span>
+                <span className="text-teal-400 font-medium">CGPA: 3.29</span>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800">
-              <h4 className="text-2xl font-bold text-green-400 mb-2">Diploma in Mechanical Engineering</h4>
+            <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50">
+              <h4 className="text-2xl font-bold text-emerald-400 mb-2">Diploma in Mechanical Engineering</h4>
               <p className="text-xl text-gray-300 mb-2">Manufacturing</p>
               <p className="text-gray-400 mb-2">MARA Technological University (UiTM) - Permatang Pauh, Pulau Pinang</p>
               <div className="flex gap-4 text-sm">
                 <span className="text-gray-400">2019 – 2020</span>
-                <span className="text-blue-400 font-medium">CGPA: 3.00</span>
+                <span className="text-teal-400 font-medium">CGPA: 3.00</span>
               </div>
             </div>
           </div>
@@ -468,11 +468,11 @@ const Portfolio = () => {
             I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <a href="mailto:mafqqq16@gmail.com" className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 hover:from-blue-500/30 hover:to-purple-500/30 rounded-xl transition-all border border-blue-500/30">
+            <a href="mailto:mafqqq16@gmail.com" className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-teal-500/20 to-cyan-500/20 hover:from-teal-500/30 hover:to-cyan-500/30 rounded-xl transition-all border border-teal-500/30">
               <Mail size={24} />
               <span>mafqqq16@gmail.com</span>
             </a>
-            <a href="tel:+60175894606" className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20 hover:from-purple-500/30 hover:to-pink-500/30 rounded-xl transition-all border border-purple-500/30">
+            <a href="tel:+60175894606" className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 hover:from-cyan-500/30 hover:to-emerald-500/30 rounded-xl transition-all border border-cyan-500/30">
               <Phone size={24} />
               <span>+60 17-589 4606</span>
             </a>
