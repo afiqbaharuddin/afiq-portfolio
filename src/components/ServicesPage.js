@@ -92,6 +92,51 @@ const ServicesPage = () => {
 
   // Booking Modal Component
   const BookingModal = ({ onClose }) => {
+    const [formData, setFormData] = useState({
+      name: '',
+      email: '',
+      phone: '',
+      service: 'Web Application',
+      message: ''
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleChange = (e) => {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      });
+    };
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      setIsSubmitting(true);
+
+      try {
+        const response = await fetch('http://localhost:5000/api/bookings', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          const emailStatus = data.emailSent ? 'A confirmation email has been sent!' : '';
+          alert(`Thank you for your interest! Your booking has been received. ${emailStatus}\n\nI will contact you within 24 hours.`);
+          onClose();
+        } else {
+          alert('Something went wrong. Please try again or contact me directly.');
+        }
+      } catch (error) {
+        console.error('Error submitting booking:', error);
+        alert('Unable to submit booking. Please check if the server is running.');
+      } finally {
+        setIsSubmitting(false);
+      }
+    };
+
     return (
       <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm overflow-y-auto flex items-center justify-center p-6">
         <div className="max-w-2xl w-full bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 relative">
@@ -109,13 +154,17 @@ const ServicesPage = () => {
             <p className="text-gray-400">Let's discuss your project and how I can help bring it to life</p>
           </div>
 
-          <div className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="John Doe"
+                  required
                   className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100 placeholder-gray-500"
                 />
               </div>
@@ -123,7 +172,11 @@ const ServicesPage = () => {
                 <label className="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="john@example.com"
+                  required
                   className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100 placeholder-gray-500"
                 />
               </div>
@@ -134,13 +187,22 @@ const ServicesPage = () => {
                 <label className="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
                 <input
                   type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   placeholder="+60 12-345 6789"
+                  required
                   className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100 placeholder-gray-500"
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">Project Type</label>
-                <select className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100">
+                <select 
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100"
+                >
                   <option>Web Application</option>
                   <option>E-commerce Platform</option>
                   <option>Admin Dashboard</option>
@@ -152,19 +214,11 @@ const ServicesPage = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Project Budget</label>
-              <select className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100">
-                <option>Less than RM 5,000</option>
-                <option>RM 5,000 - RM 10,000</option>
-                <option>RM 10,000 - RM 20,000</option>
-                <option>RM 20,000 - RM 50,000</option>
-                <option>More than RM 50,000</option>
-              </select>
-            </div>
-
-            <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">Project Details</label>
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 rows="4"
                 placeholder="Tell me about your project requirements, timeline, and any specific features you need..."
                 className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100 placeholder-gray-500 resize-none"
@@ -172,20 +226,18 @@ const ServicesPage = () => {
             </div>
 
             <button
-              onClick={() => {
-                alert('Thank you for your interest! I will contact you within 24 hours.');
-                onClose();
-              }}
-              className="w-full px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Calendar size={20} />
-              Schedule Consultation
+              {isSubmitting ? 'Submitting...' : 'Schedule Consultation'}
             </button>
 
             <p className="text-sm text-gray-400 text-center">
               Response time: Within 24 hours • Free consultation • No commitment required
             </p>
-          </div>
+          </form>
         </div>
       </div>
     );
