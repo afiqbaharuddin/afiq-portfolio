@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Rocket, Users, Database, Globe, Layout, Shield, CheckCircle2, Calendar, Clock, Mail, Phone, X } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const ServicesPage = () => {
   const navigate = useNavigate();
@@ -113,25 +114,32 @@ const ServicesPage = () => {
       setIsSubmitting(true);
 
       try {
-        const response = await fetch('http://localhost:5000/api/bookings', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
+        // Send email using EmailJS
+        await emailjs.send(
+          'YOUR_SERVICE_ID',      // Replace with your EmailJS service ID
+          'YOUR_TEMPLATE_ID',     // Replace with your EmailJS template ID
+          {
+            from_name: formData.name,
+            from_email: formData.email,
+            phone: formData.phone,
+            service: formData.service,
+            message: formData.message || 'No message provided'
           },
-          body: JSON.stringify(formData)
-        });
+          'YOUR_PUBLIC_KEY'       // Replace with your EmailJS public key
+        );
 
-        if (response.ok) {
-          const data = await response.json();
-          const emailStatus = data.emailSent ? 'A confirmation email has been sent!' : '';
-          alert(`Thank you for your interest! Your booking has been received. ${emailStatus}\n\nI will contact you within 24 hours.`);
-          onClose();
-        } else {
-          alert('Something went wrong. Please try again or contact me directly.');
-        }
+        alert('Thank you for your interest! I will contact you within 24 hours.');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: 'Web Application',
+          message: ''
+        });
+        onClose();
       } catch (error) {
-        console.error('Error submitting booking:', error);
-        alert('Unable to submit booking. Please check if the server is running.');
+        console.error('Error sending email:', error);
+        alert('Something went wrong. Please try again or contact me directly at your-email@example.com');
       } finally {
         setIsSubmitting(false);
       }
