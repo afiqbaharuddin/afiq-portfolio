@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Rocket, Users, Database, Globe, Layout, Shield, CheckCircle2, Calendar, Clock, Mail, Phone, X } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 
 const ServicesPage = () => {
   const navigate = useNavigate();
@@ -93,56 +92,11 @@ const ServicesPage = () => {
 
   // Booking Modal Component
   const BookingModal = ({ onClose }) => {
-    const [formData, setFormData] = useState({
-      name: '',
-      email: '',
-      phone: '',
-      service: 'Web Application',
-      message: ''
-    });
-    const [isSubmitting, setIsSubmitting] = useState(false);
-
-    const handleChange = (e) => {
-      setFormData({
-        ...formData,
-        [e.target.name]: e.target.value
-      });
-    };
-
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
       e.preventDefault();
-      setIsSubmitting(true);
-
-      try {
-        // Send email using EmailJS
-        await emailjs.send(
-          'YOUR_SERVICE_ID',      // Replace with your EmailJS service ID
-          'YOUR_TEMPLATE_ID',     // Replace with your EmailJS template ID
-          {
-            from_name: formData.name,
-            from_email: formData.email,
-            phone: formData.phone,
-            service: formData.service,
-            message: formData.message || 'No message provided'
-          },
-          'YOUR_PUBLIC_KEY'       // Replace with your EmailJS public key
-        );
-
-        alert('Thank you for your interest! I will contact you within 24 hours.');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          service: 'Web Application',
-          message: ''
-        });
-        onClose();
-      } catch (error) {
-        console.error('Error sending email:', error);
-        alert('Something went wrong. Please try again or contact me directly at your-email@example.com');
-      } finally {
-        setIsSubmitting(false);
-      }
+      // Simple alert - no backend or email service
+      alert('Thank you for your interest! I will contact you within 24 hours.');
+      onClose();
     };
 
     return (
@@ -168,11 +122,7 @@ const ServicesPage = () => {
                 <label className="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
                 <input
                   type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
                   placeholder="John Doe"
-                  required
                   className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100 placeholder-gray-500"
                 />
               </div>
@@ -180,11 +130,7 @@ const ServicesPage = () => {
                 <label className="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
                 <input
                   type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
                   placeholder="john@example.com"
-                  required
                   className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100 placeholder-gray-500"
                 />
               </div>
@@ -195,22 +141,13 @@ const ServicesPage = () => {
                 <label className="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
                 <input
                   type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
                   placeholder="+60 12-345 6789"
-                  required
                   className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100 placeholder-gray-500"
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">Project Type</label>
-                <select 
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100"
-                >
+                <select className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100">
                   <option>Web Application</option>
                   <option>E-commerce Platform</option>
                   <option>Admin Dashboard</option>
@@ -224,9 +161,6 @@ const ServicesPage = () => {
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">Project Details</label>
               <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
                 rows="4"
                 placeholder="Tell me about your project requirements, timeline, and any specific features you need..."
                 className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100 placeholder-gray-500 resize-none"
@@ -235,11 +169,10 @@ const ServicesPage = () => {
 
             <button
               type="submit"
-              disabled={isSubmitting}
-              className="w-full px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
             >
               <Calendar size={20} />
-              {isSubmitting ? 'Submitting...' : 'Schedule Consultation'}
+              Schedule Consultation
             </button>
 
             <p className="text-sm text-gray-400 text-center">
