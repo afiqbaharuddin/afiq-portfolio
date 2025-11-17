@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/afiq-portfolio/static/css/main.9800a8f4.css",
-    "main.js": "/afiq-portfolio/static/js/main.3ec1b826.js",
+    "main.js": "/afiq-portfolio/static/js/main.d24cf8bc.js",
     "index.html": "/afiq-portfolio/index.html",
     "main.9800a8f4.css.map": "/afiq-portfolio/static/css/main.9800a8f4.css.map",
-    "main.3ec1b826.js.map": "/afiq-portfolio/static/js/main.3ec1b826.js.map"
+    "main.d24cf8bc.js.map": "/afiq-portfolio/static/js/main.d24cf8bc.js.map"
   },
   "entrypoints": [
     "static/css/main.9800a8f4.css",
-    "static/js/main.3ec1b826.js"
+    "static/js/main.d24cf8bc.js"
   ]
 }
