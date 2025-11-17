@@ -115,7 +115,7 @@ const ServicesPage = () => {
     };
 
     const sendToGoogleSheets = async (data) => {
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbzAeYoQqTfUrNJQRCFESnRf-ecuOS0omBcbFcFA-CcxhPJ2xdj6Ywaem7qy0ZG-QOtgrg/exec'; // You'll need to set this up
+      const scriptURL = 'https://script.google.com/macros/library/d/1xt8DK-E1z8FZruOX3ZTCxAtxBHtEhv5LFL43ZayfWjnWB8liHqmRFHo3/1'; // You'll need to set this up
       
       try {
         const response = await fetch(scriptURL, {
