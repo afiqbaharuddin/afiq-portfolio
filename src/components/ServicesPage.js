@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Rocket, Users, Database, Globe, Layout, Shield, CheckCircle2, Calendar, Clock, Mail, Phone, X, Loader2 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
+// Initialize EmailJS with your public key
+emailjs.init('GtzXw8sdr4wbVVeYW');
+
 const ServicesPage = () => {
   const navigate = useNavigate();
   const [showBookingModal, setShowBookingModal] = useState(false);
@@ -136,14 +139,12 @@ const ServicesPage = () => {
 
       try {
         // EmailJS Configuration
-        // You'll need to replace these with your actual EmailJS credentials
         const emailJSConfig = {
           serviceID: 'service_8mom9rj',
-          templateID: 'YOUR_TEMPLATE_ID',
-          publicKey: 'YOUR_PUBLIC_KEY'
+          templateID: 'template_48qguaj'
         };
 
-        // Send email via EmailJS
+        // Send email via EmailJS (publicKey already initialized above)
         await emailjs.send(
           emailJSConfig.serviceID,
           emailJSConfig.templateID,
@@ -155,8 +156,7 @@ const ServicesPage = () => {
             budget: formData.budget,
             message: formData.projectDetails,
             to_email: 'mafqqq16@gmail.com'
-          },
-          emailJSConfig.publicKey
+          }
         );
 
         // Send to Google Sheets (optional backup)
