@@ -144,7 +144,7 @@ const ServicesPage = () => {
           templateID: 'template_48qguaj'
         };
 
-        // Send email via EmailJS (publicKey already initialized above)
+        // Send email via EmailJS
         await emailjs.send(
           emailJSConfig.serviceID,
           emailJSConfig.templateID,
@@ -166,6 +166,7 @@ const ServicesPage = () => {
         });
 
         setSubmitStatus('success');
+        
         setTimeout(() => {
           onClose();
           setFormData({
