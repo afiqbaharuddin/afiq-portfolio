@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Rocket, Users, Database, Globe, Layout, Shield, CheckCircle2, Calendar, Clock, Mail, Phone, X } from 'lucide-react';
+import { ArrowLeft, Rocket, Users, Database, Globe, Layout, Shield, CheckCircle2, Calendar, Clock, Mail, Phone, X, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const ServicesPage = () => {
   const navigate = useNavigate();
@@ -92,11 +93,96 @@ const ServicesPage = () => {
 
   // Booking Modal Component
   const BookingModal = ({ onClose }) => {
-    const handleSubmit = (e) => {
+    const [formData, setFormData] = useState({
+      fullName: '',
+      email: '',
+      phone: '',
+      projectType: 'Web Application',
+      budget: 'Less than RM 5,000',
+      projectDetails: ''
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null);
+
+    const handleChange = (e) => {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      });
+    };
+
+    const sendToGoogleSheets = async (data) => {
+      const scriptURL = 'YOUR_GOOGLE_SHEETS_SCRIPT_URL'; // You'll need to set this up
+      
+      try {
+        const response = await fetch(scriptURL, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        return response.ok;
+      } catch (error) {
+        console.error('Google Sheets error:', error);
+        return false;
+      }
+    };
+
+    const handleSubmit = async (e) => {
       e.preventDefault();
-      // Simple alert - no backend or email service
-      alert('Thank you for your interest! I will contact you within 24 hours.');
-      onClose();
+      setIsSubmitting(true);
+      setSubmitStatus(null);
+
+      try {
+        // EmailJS Configuration
+        // You'll need to replace these with your actual EmailJS credentials
+        const emailJSConfig = {
+          serviceID: 'service_8mom9rj',
+          templateID: 'YOUR_TEMPLATE_ID',
+          publicKey: 'YOUR_PUBLIC_KEY'
+        };
+
+        // Send email via EmailJS
+        await emailjs.send(
+          emailJSConfig.serviceID,
+          emailJSConfig.templateID,
+          {
+            from_name: formData.fullName,
+            from_email: formData.email,
+            phone: formData.phone,
+            project_type: formData.projectType,
+            budget: formData.budget,
+            message: formData.projectDetails,
+            to_email: 'mafqqq16@gmail.com'
+          },
+          emailJSConfig.publicKey
+        );
+
+        // Send to Google Sheets (optional backup)
+        await sendToGoogleSheets({
+          ...formData,
+          timestamp: new Date().toISOString()
+        });
+
+        setSubmitStatus('success');
+        setTimeout(() => {
+          onClose();
+          setFormData({
+            fullName: '',
+            email: '',
+            phone: '',
+            projectType: 'Web Application',
+            budget: 'Less than RM 5,000',
+            projectDetails: ''
+          });
+        }, 2000);
+      } catch (error) {
+        console.error('Submission error:', error);
+        setSubmitStatus('error');
+      } finally {
+        setIsSubmitting(false);
+      }
     };
 
     return (
@@ -122,6 +208,10 @@ const ServicesPage = () => {
                 <label className="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
                 <input
                   type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  required
                   placeholder="John Doe"
                   className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100 placeholder-gray-500"
                 />
@@ -130,6 +220,10 @@ const ServicesPage = () => {
                 <label className="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                   placeholder="john@example.com"
                   className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100 placeholder-gray-500"
                 />
@@ -141,13 +235,22 @@ const ServicesPage = () => {
                 <label className="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
                 <input
                   type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
                   placeholder="+60 12-345 6789"
                   className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100 placeholder-gray-500"
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">Project Type</label>
-                <select className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100">
+                <select 
+                  name="projectType"
+                  value={formData.projectType}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100"
+                >
                   <option>Web Application</option>
                   <option>E-commerce Platform</option>
                   <option>Admin Dashboard</option>
@@ -159,20 +262,62 @@ const ServicesPage = () => {
             </div>
 
             <div>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Project Budget</label>
+              <select 
+                name="budget"
+                value={formData.budget}
+                onChange={handleChange}
+                className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100"
+              >
+                <option>Less than RM 5,000</option>
+                <option>RM 5,000 - RM 10,000</option>
+                <option>RM 10,000 - RM 20,000</option>
+                <option>RM 20,000 - RM 50,000</option>
+                <option>More than RM 50,000</option>
+              </select>
+            </div>
+
+            <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">Project Details</label>
               <textarea
+                name="projectDetails"
+                value={formData.projectDetails}
+                onChange={handleChange}
+                required
                 rows="4"
                 placeholder="Tell me about your project requirements, timeline, and any specific features you need..."
                 className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-teal-500 text-gray-100 placeholder-gray-500 resize-none"
               ></textarea>
             </div>
 
+            {submitStatus === 'success' && (
+              <div className="bg-emerald-500/10 border border-emerald-500/50 rounded-lg p-4 text-emerald-400 text-center">
+                ✓ Thank you! Your consultation request has been sent successfully.
+              </div>
+            )}
+
+            {submitStatus === 'error' && (
+              <div className="bg-red-500/10 border border-red-500/50 rounded-lg p-4 text-red-400 text-center">
+                ✗ Something went wrong. Please email me directly at mafqqq16@gmail.com
+              </div>
+            )}
+
             <button
               type="submit"
-              className="w-full px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
+              disabled={isSubmitting}
+              className="w-full px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <Calendar size={20} />
-              Schedule Consultation
+              {isSubmitting ? (
+                <>
+                  <Loader2 size={20} className="animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <Calendar size={20} />
+                  Schedule Consultation
+                </>
+              )}
             </button>
 
             <p className="text-sm text-gray-400 text-center">
