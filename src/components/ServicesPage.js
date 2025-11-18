@@ -115,17 +115,22 @@ const ServicesPage = () => {
     };
 
     const sendToGoogleSheets = async (data) => {
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbzaE-b4ECvc65p-DSIxPrz5G8ECK0AbeBlwNmGAZPhcnZ9orSqCnqrvyYeI5HF-njN2DA/exec'; // You'll need to set this up
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzppoghCBa-kjD5yIrfICVvyarEisAkD3MW8SwJBLZjRaL9G8dScCrHerf0GFizRn65gQ/exec';
       
       try {
+        const formData = new FormData();
+        Object.keys(data).forEach(key => {
+          formData.append(key, data[key]);
+        });
+
         const response = await fetch(scriptURL, {
           method: 'POST',
-          body: JSON.stringify(data),
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          mode: 'no-cors', // This bypasses CORS but you won't get response data
+          body: formData
         });
-        return response.ok;
+        
+        // With no-cors, we can't check response, so assume success
+        return true;
       } catch (error) {
         console.error('Google Sheets error:', error);
         return false;
