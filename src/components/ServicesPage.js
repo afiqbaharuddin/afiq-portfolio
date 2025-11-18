@@ -115,7 +115,7 @@ const ServicesPage = () => {
     };
 
     const sendToGoogleSheets = async (data) => {
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbzppoghCBa-kjD5yIrfICVvyarEisAkD3MW8SwJBLZjRaL9G8dScCrHerf0GFizRn65gQ/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwinJQfG2QU1fMpFKwixRIkFTbu7malp6aKyQG_sYKplz87F4dZdCuc-Mccr6HH7Dtp/exec';
       
       try {
         const formData = new FormData();
