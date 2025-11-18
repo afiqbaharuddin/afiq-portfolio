@@ -277,10 +277,10 @@ const Portfolio = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-teal-500/5 to-cyan-500/5"></div>
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <div className="mb-8 animate-fade-in">
-            <h2 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-teal-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent animate-gradient">
+            <h2 className="font-display text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-teal-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent animate-gradient">
               Muhammad Afiq Baharuddin
             </h2>
-            <p className="text-xl md:text-2xl text-gray-400 mb-8">
+            <p className="text-xl md:text-2xl text-gray-400 mb-8 font-medium">
               Software Engineer | Full Stack Developer
             </p>
             <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed">
@@ -313,7 +313,7 @@ const Portfolio = () => {
       {/* About Section */}
       <section id="about" className={`py-20 px-6 transition-all duration-1000 ${isVisible('about') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-4xl font-bold mb-12 flex items-center gap-3">
+          <h3 className="font-display text-4xl font-bold mb-12 flex items-center gap-3">
             <div className="w-12 h-12 bg-teal-500/20 rounded-lg flex items-center justify-center">
               <Code className="text-teal-400" />
             </div>
@@ -340,7 +340,7 @@ const Portfolio = () => {
       {/* Experience Section */}
       <section id="experience" className={`py-20 px-6 transition-all duration-1000 ${isVisible('experience') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-4xl font-bold mb-12 flex items-center gap-3">
+          <h3 className="font-display text-4xl font-bold mb-12 flex items-center gap-3">
             <div className="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center">
               <Briefcase className="text-cyan-400" />
             </div>
@@ -400,7 +400,7 @@ const Portfolio = () => {
       {/* Skills Section */}
       <section id="skills" className={`py-20 px-6 transition-all duration-1000 ${isVisible('skills') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-4xl font-bold mb-12 flex items-center gap-3">
+          <h3 className="font-display text-4xl font-bold mb-12 flex items-center gap-3">
             <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center">
               <Award className="text-emerald-400" />
             </div>
@@ -430,7 +430,7 @@ const Portfolio = () => {
       {/* Education Section */}
       <section id="education" className={`py-20 px-6 transition-all duration-1000 ${isVisible('education') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-4xl font-bold mb-12 flex items-center gap-3">
+          <h3 className="font-display text-4xl font-bold mb-12 flex items-center gap-3">
             <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center">
               <GraduationCap className="text-emerald-400" />
             </div>
@@ -463,7 +463,7 @@ const Portfolio = () => {
       {/* Contact Section */}
       <section id="contact" className={`py-20 px-6 transition-all duration-1000 ${isVisible('contact') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-4xl font-bold mb-8">Let's Connect</h3>
+          <h3 className="font-display text-4xl font-bold mb-8">Let's Connect</h3>
           <p className="text-gray-400 mb-12 max-w-2xl mx-auto">
             I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
           </p>

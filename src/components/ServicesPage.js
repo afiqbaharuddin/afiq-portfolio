@@ -202,7 +202,7 @@ const ServicesPage = () => {
           </button>
           
           <div className="mb-6">
-            <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
+            <h3 className="font-display text-3xl font-bold mb-2 bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
               Book a Free Consultation
             </h3>
             <p className="text-gray-400">Let's discuss your project and how I can help bring it to life</p>
@@ -373,13 +373,13 @@ const ServicesPage = () => {
             <span className="text-teal-400 font-medium">🚀 Professional Development Services</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent leading-tight">
+          <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent leading-tight">
             Transform Your Ideas
             <br />
             Into Reality
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-300 mb-6 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-300 mb-6 max-w-3xl mx-auto leading-relaxed font-medium">
             Enterprise-grade full-stack development solutions tailored to your business needs
           </p>
           
@@ -406,7 +406,7 @@ const ServicesPage = () => {
       <section id="services" className={`py-20 px-6 transition-all duration-1000 ${isVisible('services') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4">Services I Offer</h2>
+            <h2 className="font-display text-5xl font-bold mb-4">Services I Offer</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               Comprehensive development solutions tailored to your business needs
             </p>
@@ -446,7 +446,7 @@ const ServicesPage = () => {
       <section id="process" className={`py-20 px-6 transition-all duration-1000 ${isVisible('process') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4">How We Work Together</h2>
+            <h2 className="font-display text-5xl font-bold mb-4">How We Work Together</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               A transparent, collaborative process from concept to launch
             </p>
@@ -480,7 +480,7 @@ const ServicesPage = () => {
       {/* CTA Section */}
       <section id="cta" className={`py-20 px-6 bg-gradient-to-r from-teal-500/10 via-cyan-500/10 to-emerald-500/10 transition-all duration-1000 ${isVisible('cta') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl font-bold mb-6">Ready to Start Your Project?</h2>
+          <h2 className="font-display text-5xl font-bold mb-6">Ready to Start Your Project?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Let's transform your ideas into reality. Get a free consultation and detailed project proposal.
           </p>
