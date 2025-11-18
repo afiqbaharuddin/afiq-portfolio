@@ -467,7 +467,7 @@ const Portfolio = () => {
           <p className="text-gray-400 mb-12 max-w-2xl mx-auto">
             I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
           </p>
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-wrap justify-center gap-6 mb-8">
             <a href="mailto:mafqqq16@gmail.com" className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-teal-500/20 to-cyan-500/20 hover:from-teal-500/30 hover:to-cyan-500/30 rounded-xl transition-all border border-teal-500/30">
               <Mail size={24} />
               <span>mafqqq16@gmail.com</span>
@@ -476,6 +476,16 @@ const Portfolio = () => {
               <Phone size={24} />
               <span>+60 17-589 4606</span>
             </a>
+          </div>
+          
+          <div className="flex justify-center">
+            <button
+              onClick={() => navigate('/services')}
+              className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 rounded-xl font-semibold transition-all shadow-lg shadow-teal-500/20 text-lg"
+            >
+              <Calendar size={24} />
+              Book a Service
+            </button>
           </div>
         </div>
       </section>
